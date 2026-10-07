@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechSphere
 
-## Getting Started
+TechSphere is a full-stack e-commerce platform for consumer electronics built with Next.js, TypeScript, MongoDB, Mongoose, Tailwind CSS, and shadcn/ui.
 
-First, run the development server:
+The platform allows customers to browse products, search and filter the catalog, manage a persistent shopping cart, place orders, and track their purchases. It also includes a protected admin dashboard for product, inventory, customer, and order management.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://techsphere-mu.vercel.app/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Customer Experience
 
-## Learn More
+- Responsive product catalog
+- Product search
+- Category filtering
+- Product sorting by:
+  - Newest
+  - Name
+  - Price low to high
+  - Price high to low
+- Dynamic product detail pages
+- Product specifications
+- Discount pricing
+- Stock availability indicators
+- Persistent shopping cart using localStorage
+- Cart quantity management
+- Secure user registration and login
+- Protected checkout
+- Cash on Delivery checkout
+- Customer order history
+- Individual order details
+- Responsive mobile navigation
+- Loading skeletons
+- Success and error notifications
+- Custom 404 and error pages
+- About Us and contact sections
 
-To learn more about Next.js, take a look at the following resources:
+### Authentication & Security
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Custom authentication using JWT
+- Password hashing using bcrypt
+- HTTP-only authentication cookies
+- Protected customer routes
+- Protected administrator routes
+- Role-based authorization
+- Server-side admin role validation
+- Safe redirect handling
+- Generic login error responses
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Shopping Cart
 
-## Deploy on Vercel
+- Add products to cart
+- Remove products
+- Update product quantities
+- Stock-aware quantity limits
+- Persistent cart storage
+- Cart totals
+- Clear cart confirmation
+- Automatic cart clearing after successful checkout
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Checkout & Orders
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Shipping information collection
+- Server-side order validation using Zod
+- Server-calculated product prices
+- Server-side stock verification
+- MongoDB transactions
+- Atomic inventory updates
+- Duplicate cart item handling
+- Order item snapshots
+- Customer-specific order access
+- Order status tracking
+
+### Admin Dashboard
+
+- Dashboard statistics
+- Product management
+- Create products
+- Edit products
+- Archive products
+- Restore products through product editing
+- Inventory management
+- Order management
+- Customer statistics
+- Revenue statistics
+- Order detail views
+- Controlled order status transitions
+
+Supported order workflow:
+
+```text
+Pending
+  ├── Confirmed
+  │     ├── Shipped
+  │     │     └── Delivered
+  │     └── Cancelled
+  └── Cancelled
